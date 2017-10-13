@@ -1,0 +1,61 @@
+
+.margin-top-bottom-10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .postMundaneDetails {
+    color: darkgrey;
+    font-size: 12px;
+  }
+
+  /* [ngClass]="{'pull-right': post.byUserId === loggedInUser.userId, 'pull-left': post.byUserId !== loggedInUser.userId}" */
+
+  .postByLoggedInUserTalkBubble {
+    background-color: aquamarine;
+    border-radius: 10px;
+    margin: 8px;
+    display: inline-block;
+    position: relative;
+    width: 90%;
+    height: auto;
+  }
+  .postByOtherInUserTalkBubble {
+    background-color: lightgreen;
+    border-radius: 10px;
+    margin: 8px;
+    display: inline-block;
+    position: relative;
+    width: 90%;
+    height: auto;
+  }
+
+  .tri-right.left-top:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -20px;
+    right: auto;
+    top: 0px;
+    bottom: auto;
+    border: 22px solid;
+    border-color: lightyellow transparent transparent transparent;
+  }
+
+  /* .tri-right.left-top:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -40px;
+    right: auto;
+    top: -8px;
+    bottom: auto;
+    border: 32px solid;
+    border-color: #666 transparent transparent transparent;
+  } */
+/* 
+  .talk-bubble {
+    background-color: lightyellow;
+  } */

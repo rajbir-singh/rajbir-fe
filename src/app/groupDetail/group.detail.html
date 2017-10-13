@@ -1,0 +1,66 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header text-center">
+                        <h3 class="title">Group Members</h3>
+                        <!-- <p class="category">Are you looking for more components? Please check our Premium Version of Paper Dashboard Pro.</p> -->
+                        <br>
+                    <!-- <pre>{{groupDetail | json}}</pre> -->
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr style="cursor: pointer;" *ngFor="let user of groupDetail?.users" (click)="goToUserDetails(user.userId)">
+                                    <td>{{user.name}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="row">
+                    <div class="header">
+                        <h3 class="title text-center">Group Messages</h3>
+                        <!-- <p class="category">Are you looking for more components? Please check our Premium Version of Paper Dashboard Pro.</p> -->
+                        <br>
+                    <!-- <pre>{{groupDetail | json}}</pre> -->
+                    <div class="content table-responsive table-full-width">
+                        <table class="table">
+                            <tbody>
+                                <div #scrollMe style="overflow: scroll; height: xyz;">                                                                            
+                                    <tr *ngFor="let post of posts | async">                                 
+                                    <!-- <tr *ngFor="let post of ['groupDetail?.posts', 'rajbir singh']"> -->
+                                        <td [ngClass]="{'pull-right': post.byUserId === loggedInUser.userId, 'pull-left': post.byUserId !== loggedInUser.userId, 'postByLoggedInUserTalkBubble': post.byUserId === loggedInUser.userId, 'postByOtherInUserTalkBubble': post.byUserId !== loggedInUser.userId}">
+                                            <div>
+                                                {{post.message}}
+                                                <br>
+                                                <div class="pull-right postMundaneDetails">~ {{post.byUserName}}  @  {{post.time}}</div>
+                                                </div>
+                                        </td>
+                                        <!-- <td class="postByUserName">                                 
+                                            {{post.byUserName}}
+                                        </td> -->
+                                    </tr>
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <form [formGroup]="postForm" class="header" (ngSubmit)="postMessage()" novalidate>
+                    <textarea rows="3" formControlName="newMessage" name="newForm" class="form-control border-input" placeholder="Post your message"></textarea>
+                    <div class="text-right margin-top-bottom-10">
+                        <button type="submit" [disabled]="isPostingFlag || !postForm.valid" md-raised-button color="primary">Post</button>
+                    </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

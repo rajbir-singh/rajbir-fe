@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="content col-md-offset-1">
+<form [formGroup]="groupForm" (ngSubmit)="createGroup()" novalidate>
+  <div class="form-group">
+    <md-form-field>
+      <input class="form-control" formControlName="groupName" name="groupName" type="text" placeholder="Enter group name"
+              mdInput>
+    </md-form-field>
+    </div>
+
+  <div>
+  <md-form-field>
+  <md-chip-list mdPrefix #userChips>
+      <md-chip *ngFor="let selectedUser of selectedUsers" [selectable]="selectable"
+                [removable]="removable" (remove)="removeUser(selectedUser)">
+        {{selectedUser.name}}
+        <md-icon mdChipRemove class="fa fa-times" *ngIf="removable"></md-icon>
+      </md-chip>
+    </md-chip-list>
+    <md-autocomplete #auto="mdAutocomplete">
+        <md-option (onSelectionChange)="addUser(user)" *ngFor="let user of filteredUsers | async" [value]="user">
+          {{ user.name }}
+        </md-option>
+      </md-autocomplete>
+    <input name="userName" type="text" placeholder="Search user by name, email or mobile"
+           [mdChipInputFor]="userChips" mdInput  class="form-control" formControlName="userNameField" [mdAutocomplete]="auto">
+  </md-form-field>
+  </div>
+  <button type="submit" [disabled]="'false'" md-raised-button color="primary">Submit</button>
+  
+  <!-- <div>groupFormValue: {{groupForm.value | json}}</div>
+  <div>groupFormStatus: {{groupForm.status | json}}</div> -->
+</form>       
+</div>
+</div>

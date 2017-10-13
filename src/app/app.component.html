@@ -1,0 +1,32 @@
+<div *ngIf="isUserLoggedIn" class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+        <sidebar-cmp></sidebar-cmp>
+    </div>
+    <div class="main-panel">
+        <navbar-cmp (onSignOut)="signOut($event)"></navbar-cmp>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <footer-cmp></footer-cmp>
+    </div>
+</div>
+<fixedplugin-cmp></fixedplugin-cmp>
+
+<!-- working signUp template -->
+<!-- <div [style.background-image]='photo' *ngIf="!isUserLoggedIn()">
+<div id="googleBtn" class="g-signin2" (click)="onSignIn()">Sign In</div>
+<a (click)="signOut($event)">Sign out</a>
+</div> -->
+
+<style>
+    #signinButton {background-color: #dd4b39; color: white; display: inherit; text-align: center; margin: auto;}
+    #signinButton span { width: 100%;}
+</style>
+<div [hidden]="isUserLoggedIn" layout="row" flex layout-padding layout-fill layout-align="center center">
+    <div flex="40" flex-lg="50" flex-md="70" flex-sm="100">
+                <div class="padding-20 text-center">
+                    <h1 class="md-headline" translate>Welcome! Sign In With Google</h1>
+                    <div id="googleBtn" style="padding-left: 600px" class="g-signin2" (click)="onSignIn()">Sign In</div>
+                </div>
+    </div>
+</div>
