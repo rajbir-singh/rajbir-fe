@@ -3,7 +3,7 @@ import { UserService } from '../services/user.service';
 import { GroupService } from '../services/GroupService';
 import { ConfigService } from '../services/ConfigService';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
 // import { FirebaseApp } from 'angularfire2';
 
 import { FormsModule, FormGroup, FormBuilder, Validators }   from '@angular/forms';
@@ -70,18 +70,18 @@ export class GroupDetailComponent implements OnInit, AfterViewChecked {
     // search(term: string): void {
     //   this.searchTerms.next(term);
     // }
-    private groupId: number;
+    groupId: number;
 
-    private groupDetail: any;
+    groupDetail: any;
 
-    private postForm: FormGroup;
+    postForm: FormGroup;
 
-    private isPostingFlag: boolean = false;
+    isPostingFlag: boolean = false;
 
     // All the statuses available
-    public posts: FirebaseListObservable<any[]>;
+    public posts: AngularFireList <any[]>;
     
-    private loggedInUser = this.configService.getLoggedInAccount();
+    loggedInUser = this.configService.getLoggedInAccount();
 
     // private posts: []<any>;
     
@@ -98,20 +98,20 @@ export class GroupDetailComponent implements OnInit, AfterViewChecked {
         return;
       }
 
-      let post = {
+      let post = [{
         'message': postMessage,
         'time': this.utils.getCurrentDateTimeString(),
         'byUserId': this.loggedInUser.userId,
         'byUserName': this.loggedInUser.name,
         'groupId': this.groupId
-      };
+      }];
       if ( ! this.isPosting()) {
         this.isPostingFlag = true;
         let payload = post;
         this.posts.push(payload).then( snapshot => {
           this.isPostingFlag = false;
           this.postForm.get('newMessage').setValue('');
-        }).catch(error => {
+        }, error => {
           this.isPostingFlag = false;
           console.error('Some error occure while posting: ', error);
         });
@@ -137,7 +137,7 @@ export class GroupDetailComponent implements OnInit, AfterViewChecked {
         this.createForm();
         this.route.params.subscribe((params: {id: number}) => {
           this.groupId =  params.id;
-          this.posts = this.messageService.loadRecentPosts(this.groupId, 50);
+          this.posts = this.messageService.loadRecentPosts(this.groupId);
           // this.posts.on('child_added', function(data) {
           //   addCommentElement(postElement, data.key, data.val().text, data.val().author);
           // });

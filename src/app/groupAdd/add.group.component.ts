@@ -36,10 +36,10 @@ export class AddGroupComponent implements OnInit{
     private searchTerms = new Subject<string>();
 
     //form fields
-    private selectedUsers = [];
+    selectedUsers = [];
         
     removable: boolean = true;
-    private groupForm: FormGroup;
+    groupForm: FormGroup;
 
     createForm(): void {
       this.groupForm = this.formBuilder.group({
@@ -53,7 +53,7 @@ export class AddGroupComponent implements OnInit{
       this.searchTerms.next(term);
     }
     
-    private filteredUsers: Observable<any[]>;
+    filteredUsers: Observable<any[]>;
 
        ngOnInit() {
          //important: create form should be in ngOnInit(), and not in the constructer

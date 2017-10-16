@@ -30,6 +30,11 @@ export const AppRoutes: Routes = [
     {
         path: '', 
         redirectTo: 'user/' + localStorage.getItem('loggedInUserId'),
+        component: UserComponent,
+        resolve: {
+            loggedInUser: UserResolver
+         },
+         canActivate:[LoginActivate],
         pathMatch: 'full'
     },
     {

@@ -1,7 +1,9 @@
+
+import 'rxjs/add/operator/map';
 // Import the required packages to the service
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import "rxjs/add/operator/map";
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+// import "rxjs/add/operator/map";
 
 @Injectable()
 export class MessageService {
@@ -43,12 +45,8 @@ export class MessageService {
   // Method to get the recent statuses from Firebase
   // ----------------------------------------------------------------------
 
-  loadRecentPosts(groupId: number, amount: number): FirebaseListObservable<any[]> {
-    return this.af.list('/posts/' + groupId, {
-      query: {
-        limitToLast: amount
-      }
-    }).map(arr => arr) as FirebaseListObservable<any[]>;
+  loadRecentPosts(groupId: number): AngularFireList <any[]> {
+    return this.af.list('/posts/' + groupId);
   }
 
   // ----------------------------------------------------------------------
