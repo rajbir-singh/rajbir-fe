@@ -81,7 +81,7 @@ import { IconsComponent }   from './icons/icons.component';
 import { MapsComponent }   from './maps/maps.component';
 import { NotificationsComponent }   from './notifications/notifications.component';
 import { UpgradeComponent }   from './upgrade/upgrade.component';
-import { UserResolver }   from './user/UserResolver';
+import { UserResolver }   from './user/userResolver';
 import { UserService }   from './services/user.service';
 import { GroupService }   from './services/GroupService';
 import { GroupListResolver }   from './group-list/group.list.resolver';
