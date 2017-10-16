@@ -29,20 +29,9 @@ import { UserListComponent }   from './userList/user.list.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-// Define the firebase database configuration keys, get it from your Firebase application console
-//TODO: manage rules on firebase console so that only authentic users can read/write data
-export const firebaseConfig = {
-  apiKey: "AIzaSyBFodVZ6du4OR89bu3MzcHi8KjnN1mFwzk",
-  authDomain: "my-chat-app-2becc.firebaseapp.com",
-  databaseURL: "https://my-chat-app-2becc.firebaseio.com",
-  projectId: "my-chat-app-2becc",
-  storageBucket: "",
-  messagingSenderId: "300228273168"
-};
-
 import {
-  // MaterialModule,
-  MdAutocompleteModule,
+  MaterialModule,
+  // MdAutocompleteModule,
 //   MdButtonModule,
 //   MdButtonToggleModule,
 //   MdCardModule,
@@ -74,6 +63,17 @@ import {
 //   MdToolbarModule,
 //   MdTooltipModule,
 } from '@angular/material';
+
+// Define the firebase database configuration keys, get it from your Firebase application console
+//TODO: manage rules on firebase console so that only authentic users can read/write data
+export const firebaseConfig = {
+  apiKey: "AIzaSyBFodVZ6du4OR89bu3MzcHi8KjnN1mFwzk",
+  authDomain: "my-chat-app-2becc.firebaseapp.com",
+  databaseURL: "https://my-chat-app-2becc.firebaseio.com",
+  projectId: "my-chat-app-2becc",
+  storageBucket: "",
+  messagingSenderId: "300228273168"
+};
 
 import { TableComponent }   from './table/table.component';
 import { TypographyComponent }   from './typography/typography.component';
@@ -122,8 +122,8 @@ import { GroupListComponent } from './group-list/group-list.component';
     FixedPluginModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBr-tgUtpm8cyjYVQDrjs8YpZH7zBNWPuY'}),
     HttpModule,
-    // MaterialModule,
-    MdAutocompleteModule,
+    MaterialModule,
+    // MdAutocompleteModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
