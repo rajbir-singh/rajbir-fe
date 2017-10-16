@@ -5,7 +5,7 @@ import { DashboardComponent }   from './dashboard/dashboard.component';
 //User
 import { UserComponent }   from './user/user.component';
 import { UserListComponent }   from './userList/user.list.component';
-import { UserResolver }   from './user/UserResolver';
+import { UserResolver }   from './user/userResolver';
 import { UserListResolver }   from './userList/user.list.resolver';
 
 //SignUp
