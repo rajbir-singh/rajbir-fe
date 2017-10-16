@@ -1,5 +1,8 @@
 {
   "compileOnSave": false,
+  "paths": {
+    "home/*": ["./src/app/*"]
+  },  
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
