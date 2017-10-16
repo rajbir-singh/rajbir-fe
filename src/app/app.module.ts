@@ -41,7 +41,7 @@ export const firebaseConfig = {
 };
 
 import {
-  MaterialModule,
+  // MaterialModule,
   MdAutocompleteModule,
 //   MdButtonModule,
 //   MdButtonToggleModule,
@@ -122,7 +122,7 @@ import { GroupListComponent } from './group-list/group-list.component';
     FixedPluginModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBr-tgUtpm8cyjYVQDrjs8YpZH7zBNWPuY'}),
     HttpModule,
-    MaterialModule,
+    // MaterialModule,
     MdAutocompleteModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
