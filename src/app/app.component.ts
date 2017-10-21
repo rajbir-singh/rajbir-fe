@@ -4,6 +4,7 @@ import { Utils } from './services/Utils';
 import { SignUpService } from './services/SignUpService'
 import { Router } from '@angular/router';
 import {Observable} from 'rxjs/Rx';
+import { CoolLocalStorage } from "angular2-cool-storage";
 declare var $:any;
 declare const gapi: any;
 
@@ -15,7 +16,8 @@ declare const gapi: any;
 
 export class AppComponent {
   isUserLoggedIn: boolean = false;
-  constructor(private zone: NgZone, private changeDetectorRef: ChangeDetectorRef, private router: Router, private signUpService: SignUpService, private utils: Utils, private configService: ConfigService) {
+  constructor(
+    private localStorage: CoolLocalStorage, private zone: NgZone, private changeDetectorRef: ChangeDetectorRef, private router: Router, private signUpService: SignUpService, private utils: Utils, private configService: ConfigService) {
     this.isUserLoggedIn = this.configService.isUserLoggedIn();
     // Observable.interval(2000).subscribe(x => {this.isUserLoggedIn = !this.isUserLoggedIn});
   }
@@ -62,7 +64,7 @@ export class AppComponent {
   }
 
   successCallback = function (data) {
-    localStorage.setItem(this.configService.loggedInUserIdKey, data.data.userId);
+    this.localStorage.setItem(this.configService.loggedInUserIdKey, data.data.userId);
     this.configService.setLoggedInAccount(data.data);
     this.router.navigate(['/user/' + data.data.userId]);
     // this.changeDetectorRef.detectChanges();
@@ -70,7 +72,7 @@ export class AppComponent {
   }
   
   signOut = function signOut(ev) {
-    localStorage.removeItem(this.configService.loggedInUserIdKey);
+    this.localStorage.removeItem(this.configService.loggedInUserIdKey);
     this.isUserLoggedIn = this.configService.isUserLoggedIn();
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function () {

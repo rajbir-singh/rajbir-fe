@@ -25,10 +25,12 @@ import { GroupListResolver }    from './group-list/group.list.resolver';
 import { LoginActivate } from './config/LoginActivate';
 import { AddGroupComponent } from './groupAdd/add.group.component';
 import { GroupDetailComponent } from './groupDetail/group.detail.component';
+import { CoolLocalStorage } from "angular2-cool-storage";
 
 export const AppRoutes: Routes = [
     {
         path: '', 
+        //TODO localStorage: does this need to change?? 
         redirectTo: 'user/' + localStorage.getItem('loggedInUserId'),
         component: UserComponent,
         resolve: {

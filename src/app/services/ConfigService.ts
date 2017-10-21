@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { CoolLocalStorage } from "angular2-cool-storage";
 
 @Injectable()
 export class ConfigService {
-    constructor(private http: Http) {}
+    constructor(private http: Http, 
+        private localStorage: CoolLocalStorage) {}
     
     // beUrl = 'http://localhost:8080';
     beUrl = 'https://sprangular.herokuapp.com';
     loggedInUserIdKey = 'loggedInUserId';
-    loggedInUserId: String = localStorage.getItem(this.loggedInUserIdKey);
+    loggedInUserId: String = this.localStorage.getItem(this.loggedInUserIdKey);
 
     isUserLoggedIn(): boolean {
         let s: String = localStorage.getItem(this.loggedInUserIdKey);

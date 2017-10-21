@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CoolLocalStorage } from "angular2-cool-storage";
 
 declare var $:any;
 
@@ -12,6 +13,7 @@ export interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     // { path: 'signUp', title: 'SignUp',  icon:'ti-export', class: ''},
     // { path: 'dashboard', title: 'Dashboard',  icon: 'ti-panel', class: '' },
+    //TODO localStorage: does this need to change??
     { path: 'user/' + localStorage.getItem('loggedInUserId'), title: 'User Profile',  icon:'ti-user', class: '' },
     { path: 'users', title: 'Users List',  icon:'ti-view-list-alt', class: '' },
     { path: 'addGroup', title: 'Add Group',  icon:'ti-google', class: '' },
