@@ -29,9 +29,9 @@ import { UserListComponent }   from './userList/user.list.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-// import {
-//   // MaterialModule,
-//   MdAutocompleteModule,
+import {
+  MaterialModule,
+  // MdAutocompleteModule,
 //   MdButtonModule,
 //   MdButtonToggleModule,
 //   MdCardModule,
@@ -61,10 +61,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 //   MdTableModule,
 //   MdTabsModule,
 //   MdToolbarModule,
-//   MdTooltipModule
-// } from '@angular/material';
+//   MdTooltipModule,
+} from '@angular/material';
 
-import { CustomMaterialModule } from './custom.material.module';
 // Define the firebase database configuration keys, get it from your Firebase application console
 //TODO: manage rules on firebase console so that only authentic users can read/write data
 export const firebaseConfig = {
@@ -123,7 +122,8 @@ import { GroupListComponent } from './group-list/group-list.component';
     FixedPluginModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBr-tgUtpm8cyjYVQDrjs8YpZH7zBNWPuY'}),
     HttpModule,
-    CustomMaterialModule,
+    MaterialModule,
+    // MdAutocompleteModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
