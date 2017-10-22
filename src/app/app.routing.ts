@@ -31,7 +31,7 @@ export const AppRoutes: Routes = [
     {
         path: '', 
         //TODO localStorage: does this need to change?? 
-        redirectTo: 'user/' + localStorage.getItem('loggedInUserId'),
+        // redirectTo: 'user/' + localStorage.getItem('loggedInUserId'),
         component: UserComponent,
         resolve: {
             loggedInUser: UserResolver

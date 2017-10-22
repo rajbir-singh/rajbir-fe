@@ -26,8 +26,16 @@ import { UserComponent }   from './user/user.component';
 import { UserListComponent }   from './userList/user.list.component';
 
 // Import the AngularFireModule and the AngularFireDatabaseModule
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
+// for AngularFireDatabase
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
+// for AngularFireAuth
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 
 import {
   MaterialModule,
@@ -128,6 +136,7 @@ import { GroupListComponent } from './group-list/group-list.component';
     // MdAutocompleteModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     CoolStorageModule
   ],
 
@@ -138,6 +147,8 @@ import { GroupListComponent } from './group-list/group-list.component';
   //Lets say we have NameService as application wide injectable for the type NameService, but one particular component should get a different one? This is where the @Component decorators’ providers property comes in. It allows us to add providers to a specific component (and its child components)
   providers: [
     MessageService,
+    AngularFireAuth, 
+    AngularFireDatabase,
     AngularFireModule,
     AngularFireDatabaseModule,
     ConfigService,

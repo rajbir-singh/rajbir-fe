@@ -3,7 +3,7 @@ import { UserService } from '../services/user.service';
 import { GroupService } from '../services/GroupService';
 import { ConfigService } from '../services/ConfigService';
 import { ActivatedRoute, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AngularFireDatabase, AngularFireList  } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 // import { FirebaseApp } from 'angularfire2';
 
 import { FormsModule, FormGroup, FormBuilder, Validators }   from '@angular/forms';
@@ -79,7 +79,7 @@ export class GroupDetailComponent implements OnInit, AfterViewChecked {
     isPostingFlag: boolean = false;
 
     // All the statuses available
-    public posts: AngularFireList <any[]>;
+    public posts: Observable<any[]>;
     
     loggedInUser = this.configService.getLoggedInAccount();
 
@@ -98,23 +98,24 @@ export class GroupDetailComponent implements OnInit, AfterViewChecked {
         return;
       }
 
-      let post = [{
+      let post = {
         'message': postMessage,
         'time': this.utils.getCurrentDateTimeString(),
         'byUserId': this.loggedInUser.userId,
         'byUserName': this.loggedInUser.name,
         'groupId': this.groupId
-      }];
+      };
       if ( ! this.isPosting()) {
         this.isPostingFlag = true;
         let payload = post;
-        this.posts.push(payload).then( snapshot => {
-          this.isPostingFlag = false;
-          this.postForm.get('newMessage').setValue('');
-        }, error => {
-          this.isPostingFlag = false;
-          console.error('Some error occure while posting: ', error);
-        });
+        this.messageService.addPost(post);
+        // this.posts.push(payload).then( snapshot => {
+        //   this.isPostingFlag = false;
+        //   this.postForm.get('newMessage').setValue('');
+        // }, error => {
+        //   this.isPostingFlag = false;
+        //   console.error('Some error occure while posting: ', error);
+        // });
       }
       // this.messageService.post(postMessage);
     }
