@@ -53,7 +53,7 @@ export class MessageService {
   addPost(post: any): any {
     let groupId = post.groupId;
     const postsRef = this.af.list('/posts/' + groupId);
-    postsRef.push(post);
+    return postsRef.push(post);
   }
 
   // ----------------------------------------------------------------------

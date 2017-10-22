@@ -108,7 +108,9 @@ export class GroupDetailComponent implements OnInit, AfterViewChecked {
       if ( ! this.isPosting()) {
         this.isPostingFlag = true;
         let payload = post;
-        this.messageService.addPost(post);
+        this.messageService.addPost(post).then(
+            this.isPostingFlag = false,
+            this.postForm.get('newMessage').setValue(''));
         // this.posts.push(payload).then( snapshot => {
         //   this.isPostingFlag = false;
         //   this.postForm.get('newMessage').setValue('');
