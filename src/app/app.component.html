@@ -1,4 +1,4 @@
-<div *ngIf="isUserLoggedIn" class="wrapper">
+<div class="wrapper">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
         <sidebar-cmp></sidebar-cmp>
     </div>
@@ -18,15 +18,15 @@
 <a (click)="signOut($event)">Sign out</a>
 </div> -->
 
-<style>
+<!-- <style>
     #signinButton {background-color: #dd4b39; color: white; display: inherit; text-align: center; margin: auto;}
     #signinButton span { width: 100%;}
-</style>
-<div [hidden]="isUserLoggedIn" layout="row" flex layout-padding layout-fill layout-align="center center">
+</style> -->
+<!-- <div [hidden]="isUserLoggedIn" layout="row" flex layout-padding layout-fill layout-align="center center">
     <div flex="40" flex-lg="50" flex-md="70" flex-sm="100">
                 <div class="padding-20 text-center">
                     <h1 class="md-headline" translate>Welcome! Sign In With Google</h1>
                     <div id="googleBtn" style="padding-left: 600px" class="g-signin2">Sign In</div>
                 </div>
     </div>
-</div>
+</div> -->

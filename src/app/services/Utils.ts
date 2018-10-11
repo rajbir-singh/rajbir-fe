@@ -6,17 +6,16 @@ import { CoolLocalStorage } from "angular2-cool-storage";
 @Injectable()
 export class Utils {
     constructor(private configService: ConfigService,
-                private router: Router,
-                private localStorage: CoolLocalStorage) {}
+                private router: Router) {}
     
     isEmptyString = function(s: String) {
         return s === null || s === undefined || s === '';
     }
     
     redirectToLoginIfNotLoggedIn(): void {
-        if(this.isEmptyString(this.localStorage.getItem(this.configService.loggedInUserIdKey))) {
-            this.router.navigate(['login']);
-        }
+        // if(this.isEmptyString(this.localStorage.getItem(this.configService.loggedInUserIdKey))) {
+        //     this.router.navigate(['login']);
+        // }
     }
 
     getCurrentDateTimeString(): string {

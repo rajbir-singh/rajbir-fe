@@ -83,7 +83,7 @@ export const firebaseConfig = {
   messagingSenderId: "300228273168"
 };
 
-import { CoolStorageModule } from "angular2-cool-storage";
+// import { CoolStorageModule } from "angular2-cool-storage";
 
 import { TableComponent }   from './table/table.component';
 import { TypographyComponent }   from './typography/typography.component';
@@ -137,7 +137,7 @@ import { GroupListComponent } from './group-list/group-list.component';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    CoolStorageModule
+    // CoolStorageModule
   ],
 
   // We recommend registering app-wide services in the root AppModule providers.

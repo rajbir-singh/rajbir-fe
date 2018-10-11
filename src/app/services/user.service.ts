@@ -23,21 +23,25 @@ export class UserService {
     constructor(private http: Http, private configService: ConfigService) {}
     //TODO: use account instead of any
     getUserById(id: String) :any  {
-        var googleLoginUrl = this.configService.beUrl + '/api/v1/user/' + id;
+        var googleLoginUrl = this.configService.beUrl + '/api/account/' + id;
         return this.http.get(googleLoginUrl, {headers: this.headers})
         .toPromise();
     }
 
     updateUser(userDto: any): any {
-        var updateUserUrl = this.configService.beUrl + '/api/v1/user/update';
+        if(userDto.accountId === null || userDto.accountId === undefined) {
+            console.log('AccountId found null while updating account!');
+            return null;
+        }
+        var updateUserUrl = this.configService.beUrl + '/api/account/update/' + userDto.accountId;
         return this.http.post(updateUserUrl, userDto, {headers: this.headers}).toPromise();
     }
 
     getUsers(): any {
-        var usersListUrl = this.configService.beUrl + '/api/v1/user/list';
+        var usersListUrl = this.configService.beUrl + '/api/account/all';
         return this.http.get(usersListUrl, {headers: this.headers}).toPromise()
         .then(usersList => {
-            return usersList.json().data
+            return usersList.json()
         }).catch(error => {
             console.log('Some error occurred while getting users list');
         });

@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { Utils }   from '../services/Utils';
 import {Observable} from 'rxjs/Rx';
-import { CoolLocalStorage } from "angular2-cool-storage";
+// import { CoolLocalStorage } from "angular2-cool-storage";
 
 @Component({
     selector: 'user-cmp',
@@ -20,7 +20,7 @@ export class UserComponent implements OnInit{
     loggedInUserCopy: any;
     isEditing = false;
 
-    constructor(private localStorage: CoolLocalStorage, private configService: ConfigService, private changeDetectorRef: ChangeDetectorRef, private userService: UserService, private route: ActivatedRoute, private utils: Utils) {
+    constructor(private configService: ConfigService, private changeDetectorRef: ChangeDetectorRef, private userService: UserService, private route: ActivatedRoute, private utils: Utils) {
         this.route.params.subscribe(params => {
             // const userId = params['id'];
             console.log('isEditing: ', this.isEditing);
@@ -64,6 +64,7 @@ export class UserComponent implements OnInit{
     }
 
     canEditUser(): boolean {
-        return this.loggedInUser.userId === this.localStorage.getItem(this.configService.loggedInUserIdKey);
+        return true;
+        // return this.loggedInUser.userId === this.localStorage.getItem(this.configService.loggedInUserIdKey);
     }
 }

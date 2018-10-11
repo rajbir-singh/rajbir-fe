@@ -16,9 +16,9 @@ export class UserResolver implements Resolve<any> {
             id = this.configService.getLoggedInUserId();
         }
         // let id = '106540182994763924496';
-        return this.userService.getUserById(id).then(hero => {
-            if (hero) {
-                return hero.json().data;
+        return this.userService.getUserById(id).then(user => {
+            if (user) {
+                return user.json();
             } else { // id not found
                 // this.router.navigate(['/dashboard']);
                 return null;

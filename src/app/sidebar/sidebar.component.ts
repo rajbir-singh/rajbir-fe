@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoolLocalStorage } from "angular2-cool-storage";
+// import { CoolLocalStorage } from "angular2-cool-storage";
 
 declare var $:any;
 

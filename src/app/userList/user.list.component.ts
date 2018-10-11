@@ -30,11 +30,12 @@ export class UserListComponent implements OnInit{
 
     ngOnInit(): void {
         this.tableData1 = {
-            headerRow: [ 'ID', 'Name', 'Email', 'Mobile', 'About User'],
+            // headerRow: [ 'ID', 'Name', 'Email', 'Mobile', 'About User'],
+            headerRow: ['Name', 'Email', 'Mobile', 'Details'],
             dataRows: []
         };
         this.usersList = this.route.snapshot.data['usersList'];
-        console.log(this.usersList);
+        // console.log(this.usersList);
         // this.usersList.array.forEach(userRow => {
             
         // });

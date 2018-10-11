@@ -14,12 +14,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr style="cursor: pointer;" (click)="goToUserDetails(user.userId)" *ngFor="let user of usersList">
+                            <tr style="cursor: pointer;" (click)="goToUserDetails(user.accountId)" *ngFor="let user of usersList">
                                 <!-- <td *ngFor="let cell of row">{{cell}}</td> -->
-                                <td>{{user.userId}}</td>
+                                <!-- <td>{{user.userId}}</td> -->
                                 <td>{{user.name}}</td>
-                                <td>{{user.email}}</td>
-                                <td>{{user.mobile}}</td>
+                                <td>{{user.email1}}</td>
+                                <td>{{user.mobile1}}</td>
                                 <td>{{user.aboutMe}}</td>
                             </tr>
                         </tbody>

@@ -25,7 +25,7 @@ import { GroupListResolver }    from './group-list/group.list.resolver';
 import { LoginActivate } from './config/LoginActivate';
 import { AddGroupComponent } from './groupAdd/add.group.component';
 import { GroupDetailComponent } from './groupDetail/group.detail.component';
-import { CoolLocalStorage } from "angular2-cool-storage";
+// import { CoolLocalStorage } from "angular2-cool-storage";
 
 export const AppRoutes: Routes = [
     {
@@ -36,7 +36,7 @@ export const AppRoutes: Routes = [
         resolve: {
             loggedInUser: UserResolver
          },
-         canActivate:[LoginActivate],
+        canActivate:[LoginActivate],
         pathMatch: 'full'
     },
     {
@@ -54,16 +54,14 @@ export const AppRoutes: Routes = [
         component: UserComponent,
         resolve: {
             loggedInUser: UserResolver
-         },
-         canActivate:[LoginActivate]
+         }
     },
     {
         path: 'users',
         component: UserListComponent,
         resolve: {
             usersList: UserListResolver
-        },
-         canActivate:[LoginActivate]
+        }
     },
     {
         path: 'groups',
