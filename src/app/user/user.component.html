@@ -4,22 +4,20 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Profile
-                            <i *ngIf="canEditUser()" (click)="editUser()" class="pull-right fa fa-pencil"></i>
+                            <i (click)="editUser()" class="pull-right fa fa-pencil"></i>
                         </h4>
                     </div>
                     <div class="content">
                                 <!-- User Details -->
                                 <form *ngIf="isEditing === false">
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Name</label>
                                                     <input type="text" name="name" class="form-control border-input" placeholder="Name" disabled value="{{loggedInUser.name}}">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Email</label>
                                                     <input type="text" name="email" class="form-control border-input" placeholder="Username" disabled value="{{loggedInUser.email1}}">
@@ -27,10 +25,86 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Mobile</label>
                                                     <input type="email" name="mobile" class="form-control border-input" placeholder="Mobile" disabled value="{{loggedInUser.mobile1}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Date Of Birth</label>
+                                                    <input type="text" name="dob" class="form-control border-input" placeholder="Date Of Birth" disabled value="{{loggedInUser.dob}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Father's Name</label>
+                                                    <input type="text" name="fathers-name" class="form-control border-input" placeholder="Father's Name" disabled value="{{loggedInUser.fathersName}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Mother's Name</label>
+                                                    <input type="text" name="mothers-name" class="form-control border-input" placeholder="Mother's Name" disabled value="{{loggedInUser.mothersName}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Qualification</label>
+                                                    <input type="text" name="qualification" class="form-control border-input" placeholder="Qualification" disabled value="{{loggedInUser.qualification}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Occupation</label>
+                                                    <input type="text" name="occupation" class="form-control border-input" placeholder="Occupation" disabled value="{{loggedInUser.occupation}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Height</label>
+                                                    <input type="text" name="height" class="form-control border-input" placeholder="Height" disabled value="{{loggedInUser.height}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Weight</label>
+                                                    <input type="text" name="weight" class="form-control border-input" placeholder="Weight" disabled value="{{loggedInUser.weight}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Height</label>
+                                                    <input type="text" name="height" class="form-control border-input" placeholder="Height" disabled value="{{loggedInUser.height}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Weight</label>
+                                                    <input type="text" name="weight" class="form-control border-input" placeholder="Weight" disabled value="{{loggedInUser.weight}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Own House</label>
+                                                    <input type="text" name="ownHouse" class="form-control border-input" placeholder="OwnHouse" disabled value="{{loggedInUser.ownHouse}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Only Child</label>
+                                                    <input type="text" name="onlyChild" class="form-control border-input" placeholder="OnlyChild" disabled value="{{loggedInUser.onlyChild}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -45,11 +119,78 @@
                                             </div>
                                             </div>
                                         <div class="clearfix"></div>
+                                        <div class="header">
+                                            <h4 class="title">Address
+                                            </h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Address Line 1</label>
+                                                    <input type="text" name="addressLine1" class="form-control border-input" placeholder="addressLine1" disabled value="{{loggedInUser.addresses[0].addressLine1}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Address Line 2</label>
+                                                    <input type="text" name="addressLine2" class="form-control border-input" placeholder="addressLine2" disabled value="{{loggedInUser.addresses[0].addressLine2}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Address Line 3</label>
+                                                    <input type="text" name="addressLine3" class="form-control border-input" placeholder="addressLine3" disabled value="{{loggedInUser.addresses[0].addressLine3}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Address Line 4</label>
+                                                    <input type="text" name="addressLine4" class="form-control border-input" placeholder="addressLine4" disabled value="{{loggedInUser.addresses[0].addressLine4}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>City</label>
+                                                    <input type="text" name="city" class="form-control border-input" placeholder="City" disabled value="{{loggedInUser.addresses[0].city}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>State</label>
+                                                    <input type="text" name="state" class="form-control border-input" placeholder="State" disabled value="{{loggedInUser.addresses[0].state}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Pincode</label>
+                                                    <input type="text" name="pincode" class="form-control border-input" placeholder="Pincode" disabled value="{{loggedInUser.addresses[0].pincode}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Country</label>
+                                                    <input type="text" name="country" class="form-control border-input" placeholder="Country" disabled value="{{loggedInUser.addresses[0].country}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- //TODO : make sure address type is hard code as RESIDENCE -->
                                     </form>
+                                    
 
                                     <!-- Edit User Details -->
                                     <form *ngIf="isEditing === true">
-                                        <div class="row">
+                                        <div class="row"><div class="header">
+                                            <h4 class="title">Profile
+                                                <i (click)="editUser()" class="pull-right fa fa-pencil"></i>
+                                            </h4>
+                                        </div>
+                                    <!-- </div> -->
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Name</label>
