@@ -33,7 +33,7 @@ export class UserListComponent implements OnInit{
         // this.dat = ['Name', 'Email', 'Mobile', 'About User'];
         this.tableData1 = {
             // headerRow: [ 'ID', 'Name', 'Email', 'Mobile', 'About User'],
-            headerRow: ['Name', 'Email', 'Mobile', 'Qualification', 'Occupation', 'Income', 'Height', 'Weight', 'City', 'Details'],
+            headerRow: ['Name', 'Email', 'Mobile', 'Qualification', 'Occupation', 'Income', 'Height', 'Weight', 'Details'],
             dataRows: []
         };
         this.usersList = this.route.snapshot.data['usersList'].content;
