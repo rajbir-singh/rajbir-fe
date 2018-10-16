@@ -21,6 +21,7 @@ export class UserComponent implements OnInit{
     isEditing = false;
 
     constructor(private configService: ConfigService, private changeDetectorRef: ChangeDetectorRef, private userService: UserService, private route: ActivatedRoute, private utils: Utils) {
+        
         this.route.params.subscribe(params => {
             // const userId = params['id'];
             console.log('isEditing: ', this.isEditing);
@@ -48,7 +49,7 @@ export class UserComponent implements OnInit{
         this.userService.updateUser(this.loggedInUserCopy)
         .then(user => {
             if(user) {
-                this.loggedInUser = user.json().data;
+                this.loggedInUser = user.json();
         }
         else {
             return null;
@@ -59,7 +60,11 @@ export class UserComponent implements OnInit{
 
     editUser(): void {
         this.isEditing = !this.isEditing;
+        // this.changeDetectorRef.detectChanges();
         this.loggedInUserCopy = Object.assign({}, this.loggedInUser);
+        if(this.loggedInUserCopy.addresses.length === 0) {
+            this.loggedInUserCopy.addresses[0] = {};
+        } 
         // this.changeDetectorRef.detectChanges();
     }
 

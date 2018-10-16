@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, NgZone, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { UserService } from '../services/user.service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
@@ -21,7 +21,8 @@ export class UserListComponent implements OnInit{
 
     usersList: any;
     tableData1: TableData;
-    constructor(private changeDetectorRef: ChangeDetectorRef,
+    dat: any[]
+    constructor(private zone:NgZone, private changeDetectorRef: ChangeDetectorRef,
         private userService: UserService,
         private route: ActivatedRoute,
         private utils: Utils,
@@ -29,12 +30,18 @@ export class UserListComponent implements OnInit{
     }
 
     ngOnInit(): void {
+        // this.dat = ['Name', 'Email', 'Mobile', 'About User'];
         this.tableData1 = {
             // headerRow: [ 'ID', 'Name', 'Email', 'Mobile', 'About User'],
-            headerRow: ['Name', 'Email', 'Mobile', 'Details'],
+            headerRow: ['Name', 'Email', 'Mobile', 'Qualification', 'Occupation', 'Income', 'Height', 'Weight', 'City', 'Details'],
             dataRows: []
         };
-        this.usersList = this.route.snapshot.data['usersList'];
+        this.usersList = this.route.snapshot.data['usersList'].content;
+        // this.usersList.forEach(user => {
+        //     if(user.addresses.length >= 1) {
+        //         user['city'] = user.addresses[0].city;
+        //     }
+        // });
         // console.log(this.usersList);
         // this.usersList.array.forEach(userRow => {
             

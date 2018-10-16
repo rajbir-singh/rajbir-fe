@@ -6,8 +6,8 @@ import { CoolLocalStorage } from "angular2-cool-storage";
 export class ConfigService {
     constructor(private http: Http) {}
     
-    // beUrl = 'http://localhost:8080';
-    beUrl = 'https://sprangular.herokuapp.com';
+    beUrl = 'http://localhost:8080';
+    // beUrl = 'https://sprangular.herokuapp.com';
     loggedInUserIdKey = 'loggedInUserId';
     // loggedInUserId: String = this.localStorage.getItem(this.loggedInUserIdKey);
 

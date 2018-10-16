@@ -38,7 +38,7 @@ export class UserService {
     }
 
     getUsers(): any {
-        var usersListUrl = this.configService.beUrl + '/api/account/all';
+        var usersListUrl = this.configService.beUrl + '/api/account/all?page=0&size=10';
         return this.http.get(usersListUrl, {headers: this.headers}).toPromise()
         .then(usersList => {
             return usersList.json()
